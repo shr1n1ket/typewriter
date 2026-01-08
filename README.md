@@ -21,13 +21,3 @@ Built as a personal learning project using plain HTML, CSS, and JavaScript.
 
 ## Why I Built This
 I wanted to build something tactile and visual using only core web technologies, without libraries or frameworks, while learning Git, GitHub, and deployment.
-
-## How to Run Locally
-1. Clone the repository
-2. Open `index.html` in a browser
-3. Start typing
-
-## Future Improvements
-- PDF export
-- Ink fade randomness
-- Mobile keyboard support
