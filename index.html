@@ -29,7 +29,6 @@
             max-width: 95vw;
         }
 
-        /* Paper */
         .paper-holder {
             background: #dcdcdc;
             padding: 20px;
@@ -51,6 +50,7 @@
             margin-bottom: 20px;
             border-bottom: 1px solid #ddd;
             padding-bottom: 8px;
+            letter-spacing: 1px;
         }
 
         .paper-content {
@@ -75,7 +75,6 @@
             51%, 100% { opacity: 0; }
         }
 
-        /* Body */
         .typewriter-body {
             background: #a8c5d9;
             padding: 25px;
@@ -127,7 +126,6 @@
             border-radius: 20px;
         }
 
-        /* Controls */
         .controls {
             position: fixed;
             bottom: 30px;
@@ -160,9 +158,7 @@
 <div class="typewriter-container">
     <div class="paper-holder">
         <div class="paper">
-            <div class="paper-header">
-                January 8, 2026 — Pimpri
-            </div>
+            <div class="paper-header" id="dateOnly"></div>
             <div class="paper-content" id="paper">
                 <span class="cursor"></span>
             </div>
@@ -196,7 +192,6 @@
     </div>
 </div>
 
-<!-- Controls -->
 <div class="controls">
     <button class="control-btn" id="saveBtn">
         <img src="download.png" alt="Save">
@@ -225,7 +220,6 @@
 
     function updatePaper() {
         paper.innerHTML = content + '<span class="cursor"></span>';
-
         const lines = content.split('\n').length;
         const offset = Math.max(0, (lines - 10) * 28);
         paper.style.transform = `translateY(-${offset}px)`;
@@ -255,6 +249,20 @@
         link.download = `letter_${Date.now()}.txt`;
         link.click();
     };
+
+    function updateDate() {
+        const now = new Date();
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        document.getElementById('dateOnly').textContent =
+            now.toLocaleDateString('en-US', options);
+    }
+
+    updateDate();
 </script>
 
 </body>
